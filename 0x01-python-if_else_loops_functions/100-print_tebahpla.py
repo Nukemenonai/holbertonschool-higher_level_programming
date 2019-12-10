@@ -2,4 +2,4 @@
 for number in range(122, 96, -1):
     if number % 2 != 0:
         number -= 32
-    print(chr(number), end="")
+    print("{}".format(chr(number)), end="")
