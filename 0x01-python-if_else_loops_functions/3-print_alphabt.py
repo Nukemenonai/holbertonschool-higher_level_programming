@@ -5,5 +5,5 @@ for i in range(97, 123):
         x = x + 1
         continue
 
-    print(chr(x), end="")
+    print("{}".format(chr(x)), end="")
     x = x + 1
