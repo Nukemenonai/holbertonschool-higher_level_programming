@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 def uppercase(str):
     l = len(str)
+    if str = "":
+        pass
     for i in range(0, l):
         char = str[i]
         if i != (len(str) - 1):
