@@ -36,11 +36,11 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 int is_palindrome(listint_t **head)
 {
 	int len = 0;
-	listint_t *last = *head, *tmp, *tmp2;
+	listint_t *tmp = *head, *tmp2;
 
-	while (last != NULL)
+	while (tmp != NULL)
 	{
-		last = last->next;
+		tmp = tmp->next;
 		len++;
 	}
 	tmp2 = *head;
