@@ -3,28 +3,6 @@
 #include "lists.h"
 
 /**
- * get_nodeint_at_index - gets the node at Nth position
- *
- * @head: the pointer to the first node
- * @index: the node to look for
- * Return: the pointer if index is found or NULL if not
- */
-
-listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
-{
-	unsigned int count = 0;
-
-	while (head != NULL)
-	{
-		if (count == index)
-			return (head);
-		count++;
-		head = head->next;
-	}
-
-	return (NULL);
-}
-/**
  * is_palindrome - cheks if a linked list is a palindrome
  *
  * @head: the pointer to the first node
@@ -35,19 +13,29 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 
 int is_palindrome(listint_t **head)
 {
-	int len = 0;
-	listint_t *tmp = *head, *tmp2;
+	unsigned int len = 0;
+	listint_t *tmp = *head, *tmp2 = *head, *tmp3 = *head;
+	unsigned int count;
 
 	while (tmp != NULL)
 	{
 		tmp = tmp->next;
 		len++;
 	}
-	tmp2 = *head;
+
 	while (len--)
 	{
-		tmp = get_nodeint_at_index(*head, len);
-		if (tmp->n != tmp2->n)
+		count = 0;
+		tmp3 = *head;
+		while (tmp3 != NULL)
+		{
+			if (count == len)
+				break;
+			count++;
+			tmp3 = tmp3->next;
+		}
+
+		if (tmp3->n != tmp2->n)
 			return (0);
 		tmp2 = tmp2->next;
 	}
