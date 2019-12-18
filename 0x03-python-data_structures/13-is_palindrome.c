@@ -3,6 +3,28 @@
 #include "lists.h"
 
 /**
+ * palindromechecker - cheks if a linked list is a palindrome
+ *
+ * @left: the pointer to the that moves to the left
+ * @right: pointer that moves right
+ * Return: 1 if its pal 0 if not
+ */
+int palindromechecker(listint_t **left, listint_t *right)
+{
+	int isp;
+
+	if (right == NULL)
+		return (1);
+
+	isp = palindromechecker(left, right->next);
+	if (isp == 0)
+		return (0);
+	isp = (right->n == (*left)->n);
+	*left = (*left)->next;
+
+	return (isp);
+}
+/**
  * is_palindrome - cheks if a linked list is a palindrome
  *
  * @head: the pointer to the first node
@@ -13,31 +35,7 @@
 
 int is_palindrome(listint_t **head)
 {
-	unsigned int len = 0;
-	listint_t *tmp = *head, *tmp2 = *head, *tmp3 = *head;
-	unsigned int count;
+	int a = palindromechecker(head, *head);
 
-	while (tmp != NULL)
-	{
-		tmp = tmp->next;
-		len++;
-	}
-
-	while (len--)
-	{
-		count = 0;
-		tmp3 = *head;
-		while (tmp3 != NULL)
-		{
-			if (count == len)
-				break;
-			count++;
-			tmp3 = tmp3->next;
-		}
-
-		if (tmp3->n != tmp2->n)
-			return (0);
-		tmp2 = tmp2->next;
-	}
-	return (1);
+	return (a);
 }
