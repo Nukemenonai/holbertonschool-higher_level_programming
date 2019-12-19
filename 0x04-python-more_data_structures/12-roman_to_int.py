@@ -8,6 +8,8 @@ def roman_to_int(roman_string):
     ocurr = 1
     if not roman_string:
         return 0
+    elif type(roman_string) is not str:
+        return 0
     else:
         for lttr in roman_string:
             if lttr not in romans:
@@ -31,8 +33,8 @@ def roman_to_int(roman_string):
                             continue
                         else:
                             return 0
-                            #total = romans[lttr] - total
-                            #curr += 1
+                            # total = romans[lttr] - total
+                            # curr += 1
                     elif romans[lttr] == romans[roman_string[curr - 1]]:
                         total = romans[lttr] + total
                         curr += 1
