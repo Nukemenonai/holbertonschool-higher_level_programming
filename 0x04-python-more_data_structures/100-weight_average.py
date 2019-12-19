@@ -7,5 +7,5 @@ def weight_average(my_list=[]):
     else:
         for i in my_list:
             avg += (i[0]*i[1])
-            dvdr +=(i[1])
+            dvdr += (i[1])
         return avg / dvdr
