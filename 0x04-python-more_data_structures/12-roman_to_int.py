@@ -6,7 +6,7 @@ def roman_to_int(roman_string):
     lttr = roman_string[curr]
     total = 0
     ocurr = 1
-    if not roman_string:
+    if roman_string is None:
         return 0
     elif type(roman_string) is not str:
         return 0
