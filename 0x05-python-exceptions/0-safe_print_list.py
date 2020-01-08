@@ -9,15 +9,5 @@ def safe_print_list(my_list=[], x=0):
                 print("{}".format(item), end='\n')
             i += 1
         except:
-            return (i)
+            break;
     return (i)
-
-#    while x:
-#       try:
-#            print("{}".format(my_list[i]), end="")
-#            #print("" if x > 1 else "\n")
-#            i += 1
-#            x -= 1
-#        except (IndexError):
-#            return (i)
-#    return (i)
