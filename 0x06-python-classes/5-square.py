@@ -31,6 +31,7 @@ class Square:
 
     @size.setter
     def size(self, x):
+        """ sets the size of a square instance"""
         if x < 0:
             raise ValueError
         elif type(x) != int:
@@ -39,6 +40,7 @@ class Square:
             self.__size = x
 
     def my_print(self):
+        """Represents graphically the instance of the square"""
         if self.__size == 0:
             print("\n")
         else:
