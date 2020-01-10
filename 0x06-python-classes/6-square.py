@@ -8,14 +8,15 @@ class Square:
             size: the size of the square
             position: a tuple containing x and y coordinates
         """
-        if size < 0:
-            raise ValueError("size must be >= 0")
-        elif type(size) != int:
-            raise TypeError("size must be an integer")
-        elif type(position) != tuple:
-            raise TypeError("Tuple, pos int")
-        elif position[0] < 0 or position[1] < 0:
-            raise TypeError("Tuple pos int")
+        tup = position
+        if type(tup) != tuple:
+            raise TypeError('Tuple, pos int')
+        elif type(tup[0]) is not int or type(tup[1]) is not int:
+            raise TypeError('Tuple pos int')
+        elif tup[0] < 0 or tup[1] < 0:
+            raise ValueError('Tuple pos int')
+
+
         else:
             self.__position = position
             self.__size = size
@@ -31,14 +32,14 @@ class Square:
         return self.__size
 
     @size.setter
-    def size(self, x):
+    def size(self, value):
         """ This function sets the size of the square. """
-        if x < 0:
-            raise ValueError
-        elif type(x) != int:
-            raise TypeError
+        if value < 0:
+            raise ValueError('size must be >= 0')
+        elif type(value) != int:
+            raise TypeError('size must be an integer')
         else:
-            self.__size = x
+            self.__size = value
 
     @property
     def position(self):
@@ -51,21 +52,25 @@ class Square:
             Args:
                  tup: the tuple entered by the user
         """
-        if type(position) != tuple:
-            raise TypeError("test")
-        elif position[0] < 0 or position[1] < 0:
-            raise TypeError("test")
+        if type(tup) != tuple:
+            raise TypeError('Tuple, pos int')
+        elif not isinstance(tup[0], int) or not isinstance(tup[1], int):
+            raise TypeError('Tuple pos int')
+        elif tup[0] < 0 or tup[1] < 0:
+            raise ValueError('Tuple pos int')
+
+
         else:
             self.__position = tup
 
 
     def my_print(self):
         """ Function to represent graphically the square"""
-        if self.__size == 0:
+        if self.size == 0:
             print('')
         else:
             if self.__position[1] != 0:
-                print('\n' * self.__position[1], sep="", end="")
+                print('\n' * self.position[1], sep="", end="")
             for i in range(0, self.__size):
                 print(" " * self.__position[0], sep="", end="")
                 print("#" * self.__size, sep="")
