@@ -8,24 +8,17 @@ class Square:
             size: the size of the square
             position: a tuple containing x and y coordinates
         """
-        try:
-            if size < 0:
-                raise ValueError
-            elif type(size) != int:
-                raise TypeError(i)
-            elif type(position) != tuple:
-                raise TypeError(tup)
-            elif position[0] < 0 or position[1] < 0:
-                raise TypeError(tup)
-            else:
-                self.__size = size
-                self.__position = position
-        except TypeError(i):
-            raise TypeError("size must be an integer")
-        except TypeError(tup):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        except ValueError:
+        if size < 0:
             raise ValueError("size must be >= 0")
+        elif type(size) != int:
+            raise TypeError("size must be an integer")
+        elif type(position) != tuple:
+            raise TypeError("Tuple, pos int")
+        elif position[0] < 0 or position[1] < 0:
+            raise TypeError("Tuple pos int")
+        else:
+            self.__position = position
+            self.__size = size
 
     def area(self):
         """ Gets the area of a square """
@@ -54,11 +47,14 @@ class Square:
 
     @position.setter
     def position(self, tup):
-        """ This function sets the position """
+        """ This function sets the position
+            Args:
+                 tup: the tuple entered by the user
+        """
         if type(position) != tuple:
-            raise TypeError(tup)
+            raise TypeError("test")
         elif position[0] < 0 or position[1] < 0:
-            raise TypeError(tup)
+            raise TypeError("test")
         else:
             self.__position = tup
 
@@ -66,9 +62,10 @@ class Square:
     def my_print(self):
         """ Function to represent graphically the square"""
         if self.__size == 0:
-            print("")
+            print('')
         else:
+            if self.__position[1] != 0:
+                print('\n' * self.__position[1], sep="", end="")
             for i in range(0, self.__size):
-                if self.__position[1] == 0:
-                    print(" " * self.__position[0], sep="", end="")
+                print(" " * self.__position[0], sep="", end="")
                 print("#" * self.__size, sep="")
