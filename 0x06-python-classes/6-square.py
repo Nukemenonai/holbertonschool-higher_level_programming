@@ -8,7 +8,7 @@ class Square:
             position: a tuple containing x and y coordinates
         """
         tup = position
-        if type(tup) != tuple:
+        if type(tup) != tuple or len(tup) != 2:
             raise TypeError('position must be a tuple of 2 positive integers')
         elif type(tup[0]) is not int or type(tup[1]) is not int:
             raise TypeError('position must be a tuple of 2 positive integers')
