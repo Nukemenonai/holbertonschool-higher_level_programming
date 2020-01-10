@@ -49,7 +49,7 @@ class Square:
             Args:
                  tup: the tuple entered by the user
         """
-        if type(tup) != tuple:
+        if type(tup) != tuple or len(tup) != 2:
             raise TypeError('position must be a tuple of 2 positive integers')
         elif not isinstance(tup[0], int) or not isinstance(tup[1], int):
             raise TypeError('position must be a tuple of 2 positive integers')
