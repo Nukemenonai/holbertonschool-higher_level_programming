@@ -1,25 +1,22 @@
 #!/usr/bin/python3
 class Square:
     """defines a square"""
-    def __init__(self, size=0, position=(0,0)):
+    def __init__(self, size=0, position=(0, 0)):
         """ init method for square class
-
         Args:
             size: the size of the square
             position: a tuple containing x and y coordinates
         """
         tup = position
         if type(tup) != tuple:
-            raise TypeError('Tuple, pos int')
+            raise TypeError('position must be a tuple of 2 positive integers')
         elif type(tup[0]) is not int or type(tup[1]) is not int:
-            raise TypeError('Tuple pos int')
+            raise TypeError('position must be a tuple of 2 positive integers')
         elif tup[0] < 0 or tup[1] < 0:
-            raise ValueError('Tuple pos int')
-
-
+            raise ValueError('position must be a tuple of 2 positive integers')
         else:
-            self.__position = position
-            self.__size = size
+            self.position = position
+            self.size = size
 
     def area(self):
         """ Gets the area of a square """
@@ -53,16 +50,13 @@ class Square:
                  tup: the tuple entered by the user
         """
         if type(tup) != tuple:
-            raise TypeError('Tuple, pos int')
+            raise TypeError('position must be a tuple of 2 positive integers')
         elif not isinstance(tup[0], int) or not isinstance(tup[1], int):
-            raise TypeError('Tuple pos int')
+            raise TypeError('position must be a tuple of 2 positive integers')
         elif tup[0] < 0 or tup[1] < 0:
-            raise ValueError('Tuple pos int')
-
-
+            raise ValueError('position must be a tuple of 2 positive integers')
         else:
             self.__position = tup
-
 
     def my_print(self):
         """ Function to represent graphically the square"""
