@@ -1,3 +1,5 @@
+TEST: 3-say_my_name.py
+========================
 >>> say_my_name = __import__('3-say_my_name').say_my_name
 
 >>> say_my_name("John", "Smith")
@@ -11,3 +13,37 @@ My name is Bob
 ... except Exception as e:
 ...    print(e)
 first_name must be a string
+>>> say_my_name("JOhn", "Smith")
+My name is JOhn Smith
+>>> say_my_name("JOhn" + "long", "Smith")
+My name is JOhnlong Smith
+>>> say_my_name("JOhn" * 3, "Smith")
+My name is JOhnJOhnJOhn Smith
+>>> say_my_name(True, "Smith")
+Traceback (most recent call last):
+	  ...
+TypeError: first_name must be a string
+>>> say_my_name("John", False)
+Traceback (most recent call last):
+	  ...
+TypeError: last_name must be a string
+>>> say_my_name("John", str(0xFFFFFF))
+My name is John 16777215
+>>> say_my_name(["John"], "Smith")
+Traceback (most recent call last):
+	  ...
+TypeError: first_name must be a string
+>>> say_my_name(Holberton, "Smith")
+Traceback (most recent call last):
+	  ...
+NameError: name 'Holberton' is not defined
+>>> say_my_name("Smith", "Smith")
+My name is Smith Smith
+>>> say_my_name(",,,,", "Smith")
+My name is ,,,, Smith
+>>> say_my_name("John " "leroy", "Smith")
+My name is John leroy Smith
+>>> say_my_name("John ", x="Smith")
+Traceback (most recent call last):
+	  ...
+TypeError: say_my_name() got an unexpected keyword argument 'x'
