@@ -18,20 +18,70 @@
 ##########
 ##########
 ##########
->>> print("")
-<BLANKLINE>
 >>> print_square(0)
 
->>> print("")
-<BLANKLINE>
 >>> print_square(1)
 #
->>> print("")
-<BLANKLINE>
 >>> try:
 ...     print_square(-1)
 ... except Exception as e:
 ...     print(e)
 size must be >= 0
->>> print("")
-<BLANKLINE>
+>>> print_square(-4.5)
+Traceback (most recent call last):
+	  ...
+TypeError: size must be an integer
+>>> print_square(4.5)
+Traceback (most recent call last):
+	  ...
+TypeError: size must be an integer
+>>> print_square(-5)
+Traceback (most recent call last):
+	  ...
+ValueError: size must be >= 0
+>>> print_square("four")
+Traceback (most recent call last):
+	  ...
+TypeError: size must be an integer
+>>> print_square(x=5)
+Traceback (most recent call last):
+	  ...
+TypeError: print_square() got an unexpected keyword argument 'x'
+>>> print_square(0xA)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+>>> print_square(0b111)
+#######
+#######
+#######
+#######
+#######
+#######
+#######
+>>> print_square((5 + 3))
+########
+########
+########
+########
+########
+########
+########
+########
+>>> print_square(ord('\t'))
+#########
+#########
+#########
+#########
+#########
+#########
+#########
+#########
+#########
