@@ -5,7 +5,11 @@ def text_indentation(text):
     """
     if type(text) != str:
         raise TypeError("text must be a string")
-    for i in range(len(text)):
-        if text[i] in ['.', '?', ':']:
-            text = text[:(i + 1)] + '\n\n' + text[(i + 2):]
-    print(text)
+
+    new_str = text.replace(':', ':\n\n')
+    new_str = new_str.replace('.', '.\n\n')
+    new_str = new_str.replace('?', '?\n\n')
+    #for i in range(len(text)):
+        #if text[i] in ['.','?',':']:
+            #text = text[:(i + 1)] + '\n\n' + text[(i + 2):]
+    print(new_str)
