@@ -18,6 +18,8 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("division by zero")
     size = len(matrix[0])
+    if size == 0:
+        raise TypeError(msg1)
     for row in matrix:
         if len(row) != size:
             raise TypeError("Each row of the matrix must have the same size")
