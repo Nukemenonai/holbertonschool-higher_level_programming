@@ -5,6 +5,7 @@ what is this
 return: sum
 """
 
+
 def add_integer(a, b=98):
     """
         Adds 2 integers
