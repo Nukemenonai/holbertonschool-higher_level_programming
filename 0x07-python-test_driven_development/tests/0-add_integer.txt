@@ -34,3 +34,23 @@ TypeError: add_integer() missing 1 required positional argument: 'a'
 Traceback (most recent call last):
 	  ...
 TypeError: a must be an integer
+>>> add_integer(isinstance(4, int), 3)
+Traceback (most recent call last):
+	  ...
+TypeError: a must be an integer
+>>> add_integer(True, False)
+Traceback (most recent call last):
+	  ...
+TypeError: a must be an integer
+>>> add_integer(5j, 3)
+Traceback (most recent call last):
+	  ...
+TypeError: a must be an integer
+>>> add_integer(0xFFFFFF, 3)
+16777218
+>>> add_integer(0b1010110, 3)
+89
+>>> add_integer(x, 3)
+Traceback (most recent call last):
+	  ...
+NameError: name 'x' is not defined
