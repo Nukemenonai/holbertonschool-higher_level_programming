@@ -13,6 +13,10 @@ class TestMaxInteger(unittest.TestCase):
         """ tests only integers"""
         self.assertEqual(max_integer([1, 2, 3, 4]), 4)
 
+    def test_max_beginning(self):
+        """tests max at the beggining"""
+        self.assertEquals(max_integer([5, 4, 3, 2]), 5)
+
     def test_voidlist(self):
         """tests a void list"""
         self.assertEqual(max_integer([]), None)
@@ -61,7 +65,3 @@ class TestMaxInteger(unittest.TestCase):
         """ Tests a list with a hexa number"""
         self.assertEqual(max_integer([12, 34, 56, 0xFFFFFF]), 16777215)
         self.assertEqual(max_integer([1234, 345, 0xFEDCBA]), 16702650)
-
-    def test_function_inside(self):
-        """ tests a function as list item"""
-        self.assertEqual(max_integer([max_integer([1, 2]), max_integer([3, 4])]), 4)
