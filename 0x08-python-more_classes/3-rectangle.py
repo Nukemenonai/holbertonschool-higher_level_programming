@@ -8,6 +8,14 @@ class Rectangle:
            width:
            height:
         """
+        if type(height) != int:
+            raise TypeError("height must be an integer")
+        if type(width) != int:
+            raise TypeError("width must be an integer")
+        if width < 0:
+            raise ValueError("width must be >= 0")
+        if height < 0:
+            raise ValueError("height must be >= 0")
         self.__width = width
         self.__height = height
 
@@ -21,9 +29,9 @@ class Rectangle:
         """ defines the heigh of the rectangle"""
 
         if type(height) != int:
-            raise TypeError("width must be an integer")
+            raise TypeError("height must be an integer")
         if height < 0:
-            raise ValueError("width must be >= 0")
+            raise ValueError("height must be >= 0")
         self.__height = height
 
     @property
@@ -54,7 +62,8 @@ class Rectangle:
         """ defines the perimeter of my rectangle"""
         if self.__width == 0 or self.__height == 0:
             perimeter = 0
-        perimeter = (self.__width + self.__height) * 2
+        else:
+            perimeter = (self.__width + self.__height) * 2
         return (perimeter)
 
     def __str__(self):
