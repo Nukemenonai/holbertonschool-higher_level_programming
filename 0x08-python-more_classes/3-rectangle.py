@@ -68,5 +68,8 @@ class Rectangle:
 
     def __str__(self):
         "string representation of a rectangle"
-        row = "#" * self.__width
-        return '\n'.join([row] * self.__height)
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        else:
+            row = "#" * self.__width
+            return '\n'.join([row] * self.__height)
