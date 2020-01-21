@@ -12,3 +12,4 @@ def read_lines(filename="", nb_lines=0):
             lines += 1
             if lines == nb_lines:
                 break
+        f.close()
