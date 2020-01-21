@@ -8,4 +8,5 @@ def write_file(filename="", text=""):
 
     with open(filename, 'w') as f:
         n = f.write(text)
+        f.close()
         return n
