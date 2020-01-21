@@ -5,4 +5,5 @@ def number_of_lines(filename=""):
     with open(filename, 'r') as f:
         for line in f:
             lines += 1
+        f.close()
     return lines
