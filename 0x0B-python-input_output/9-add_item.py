@@ -1,11 +1,23 @@
 #!/usr/bin/python3
 
-""" script that adds all arguments to a python list """
+""" script that adds all arguments to a python list
+
+This is the socumentation !!!
+
+"""
 
 import sys
 import json
 save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
+
+
+""" script that adds all arguments to a python list
+
+This is the socumentation !!!
+
+"""
+
 
 f = open("add_item.json", 'a')
 f.close()
