@@ -80,8 +80,14 @@ class Rectangle(Base):
 
     def display(self):
         """ prints a rectangle """
+        if self.__y > 0:
+            for i in range(self.__y):
+                print("")
         row = "#" * self.__width
-        print('\n'.join([str(row)] * self.__height))
+        if self.__x > 0:
+            print('\n'.join([str((" " * self.__x) + row)] * self.__height))
+        else:
+            print('\n'.join([str(row)] * self.__height))
 
     def __str__(self):
         """ string representation of a rectangle """
