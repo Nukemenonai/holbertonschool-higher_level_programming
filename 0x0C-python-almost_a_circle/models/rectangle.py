@@ -82,3 +82,9 @@ class Rectangle(Base):
         """ prints a rectangle """
         row = "#" * self.__width
         print('\n'.join([str(row)] * self.__height))
+
+    def __str__(self):
+        """ string representation of a rectangle """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x,
+                                                       self.__y, self.__width,
+                                                       self.__height)
