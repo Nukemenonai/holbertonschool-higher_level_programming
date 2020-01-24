@@ -14,6 +14,7 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+
     @property
     def width(self):
         """ """
@@ -119,3 +120,8 @@ class Rectangle(Base):
                 self.__x = kwargs['x']
             if 'y' in kwargs:
                 self.__y = kwargs['y']
+
+    def to_dictionary(self):
+        """ Returns the dictionary representation of the rectangle """
+        return {"id": self.id, "width": self.__width, "height": self.__height,
+                "x": self.__x, "y": self.__y}
