@@ -35,7 +35,9 @@ class Base:
             with open("{}.json".format(cls.__name__), 'w') as f:
                 for item in list_objs:
                     json_list.append(item.to_dictionary())
-                f.write(str(json_list))
+
+                string = cls.to_json_string(json_list)
+                f.write(string)
                 f.close()
 
     @staticmethod
@@ -57,3 +59,18 @@ class Base:
             dummy = cls(1)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances"""
+        a_file = str(cls.__name__) + ".json"
+        if not a_file:
+            return []
+        else:
+            with open(a_file, encoding="utf-8") as f:
+                instances = []
+                ln = f.read()
+                dictionary = cls.from_json_string(ln)
+                for item in dictionary:
+                    instances.append(cls.create(**item))
+                return instances
