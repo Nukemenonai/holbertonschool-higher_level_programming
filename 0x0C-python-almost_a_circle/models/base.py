@@ -37,3 +37,13 @@ class Base:
                     json_list.append(item.to_dictionary())
                 f.write(str(json_list))
                 f.close()
+
+    @staticmethod
+    def from_json_string(json_string):
+        """ Returns a list of the str repr json_string"""
+        new_list = []
+        if json_string is None or len(json_string) == 0:
+            return new_list
+        else:
+            new_list = json.loads(json_string)
+            return new_list
