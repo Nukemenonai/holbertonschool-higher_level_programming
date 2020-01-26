@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import json
+import csv
 
 class Base:
     """ Base class """
@@ -74,3 +75,34 @@ class Base:
                 for item in dictionary:
                     instances.append(cls.create(**item))
                 return instances
+
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ """
+        if list_objs is None:
+            with open("{}.csv".format(cls.__name__), 'w') as f:
+                f.write("[]")
+                f.close()
+        else:
+            csv_list = []
+            with open("{}.csv".format(cls.__name__), 'w') as f:
+                for item in list_objs:
+                    csv_list.append(item.to_dictionary().values())
+                f.write("{}".format(csv_list))
+                f.close()
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ """
+        a_file = cls.__name__ + ".csv"
+        if not a_file:
+            return []
+        else:
+            with open(a_file, encoding="utf-8") as f:
+                c_instances = []
+                ln = f.read()
+                list1 = cls.to_dictionary(ln).values()
+                for item in list1:
+                    c_instance.append(cls.create(*item))
+                return c_instances
