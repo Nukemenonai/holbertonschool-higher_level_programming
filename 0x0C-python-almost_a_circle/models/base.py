@@ -5,6 +5,7 @@
 import json
 import csv
 
+
 class Base:
     """ Base class """
 
@@ -77,7 +78,6 @@ class Base:
                 for item in dictionary:
                     instances.append(cls.create(**item))
                 return instances
-
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
