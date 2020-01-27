@@ -7,8 +7,8 @@ from models.rectangle import Rectangle
 from models.square import Square
 
 class Test_id(unittest.TestCase):
-
     """ """
+
     def setUp(self):
         Base.__nb_objects = 0
 
@@ -45,6 +45,8 @@ class Test_id(unittest.TestCase):
         self.assertIsInstance(list_input, list)
         self.assertIsInstance(json_list_input, str)
         self.assertIsInstance(list_output, list)
+
+
 
 if __name__ == '__main__':
     unittest.main()

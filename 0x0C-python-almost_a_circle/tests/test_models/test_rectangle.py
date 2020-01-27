@@ -89,6 +89,16 @@ class Test_id(unittest.TestCase):
         self.assertEqual(r2.__str__(), "[Rectangle] (1) 1/9 - 10/2")
         self.assertEqual(r1 == r2, False)
 
+    def test_create(self):
+        """ """
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual(r1.__str__(), "[Rectangle] (1) 1/0 - 3/5")
+        self.assertEqual(r2.__str__(), "[Rectangle] (1) 1/0 - 3/5")
+        self.assertEqual(r1 is r2, False)
+        self.assertEqual(r1 == r2, False)
+
 
 if __name__ == '__main__':
     unittest.main()
