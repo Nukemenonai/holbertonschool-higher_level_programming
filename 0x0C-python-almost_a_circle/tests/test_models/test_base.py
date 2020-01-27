@@ -26,5 +26,25 @@ class Test_id(unittest.TestCase):
         b5 = Base()
         self.assertEqual(b5.id, 4)
 
+    def test_to_json_string(self):
+        """ """
+        r1 = Rectangle(10, 7, 2, 8)
+        dictionary = r1.to_dictionary()
+        json_dictionary = Base.to_json_string([dictionary])
+        self.assertIsInstance(dictionary, dict)
+        self.assertIsInstance(json_dictionary, str)
+
+    def test_from_json_string(self):
+        """ """
+        list_input = [
+            {'id': 89, 'width': 10, 'height': 4},
+            {'id': 7, 'width': 1, 'height': 7}
+        ]
+        json_list_input = Rectangle.to_json_string(list_input)
+        list_output = Rectangle.from_json_string(json_list_input)
+        self.assertIsInstance(list_input, list)
+        self.assertIsInstance(json_list_input, str)
+        self.assertIsInstance(list_output, list)
+
 if __name__ == '__main__':
     unittest.main()
