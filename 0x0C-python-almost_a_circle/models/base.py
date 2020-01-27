@@ -68,9 +68,7 @@ class Base:
     def load_from_file(cls):
         """returns a list of instances"""
         a_file = str(cls.__name__) + ".json"
-        if not a_file:
-            return []
-        else:
+        try:
             with open(a_file, encoding="utf-8") as f:
                 instances = []
                 ln = f.read()
@@ -78,6 +76,8 @@ class Base:
                 for item in dictionary:
                     instances.append(cls.create(**item))
                 return instances
+        except:
+            return []
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
