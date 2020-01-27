@@ -1,12 +1,8 @@
 import unittest
 
 from models.base import Base
-from models.rectangle import Rectangle
-from models.square import Square
 
 class Test_id(unittest.TestCase):
-    def set_up(self):
-        Base._Base__nb_objects = 0
 
     def test_init(self):
         """ test base class """
