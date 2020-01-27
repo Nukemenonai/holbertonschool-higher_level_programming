@@ -15,7 +15,6 @@ class Square(Rectangle):
         """ representas a square """
         return "[{}] ({}) {}/{} - {}".format(__class__.__name__, self.id,
                                              self.__x, self.__y, self.width)
-
     @property
     def size(self):
         """ property size """
