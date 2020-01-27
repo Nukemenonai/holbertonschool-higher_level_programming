@@ -79,3 +79,15 @@ class Test_id(unittest.TestCase):
         self.assertEqual(s1.__str__(), "[Square] (1) 12/1 - 7")
         s1.update(size=7, id=89, y=1)
         self.assertEqual(s1.__str__(), "[Square] (89) 12/1 - 7")
+
+    def test_to_sq_dict(self):
+        """ """
+        s1 = Square(10, 2, 1)
+        self.assertEqual(s1.__str__(), "[Square] (1) 2/1 - 10")
+        s1_dictionary = s1.to_dictionary()
+        self.assertIsInstance(s1_dictionary, dict)
+        s2 = Square(1, 1)
+        self.assertEqual(s2.__str__(), "[Square] (2) 1/0 - 1")
+        s2.update(**s1_dictionary)
+        self.assertEqual(s2.__str__(), "[Square] (1) 2/1 - 10")
+        self.assertEqual(s1 == s2, False)
