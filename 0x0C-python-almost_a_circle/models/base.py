@@ -81,30 +81,30 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """ """
-        if list_objs is None:
-            with open("{}.csv".format(cls.__name__), 'w') as f:
-                f.write("[]")
-                f.close()
-        else:
-            csv_list = []
-            with open("{}.csv".format(cls.__name__), 'w') as f:
-                for item in list_objs:
-                    csv_list.append(item.to_dictionary().values())
-                f.write("{}".format(csv_list))
-                f.close()
+        """ CSV """
+        if cls.__name__ == "Rectangle":
+            fieldnames = ["id", "width", "height", "x", "y"]
+        if cls.__name__ == "Square":
+            fieldnames = ["id", "size", "x", "y"]
+        with open("{}.csv".format(cls.__name__), 'w', newline='') as f:
+            writer = csv.DictWriter(f, delimiter=',', fieldnames=fieldnames)
+            [writer.writerow(item.to_dictionary()) for item in list_objs]
+
 
     @classmethod
     def load_from_file_csv(cls):
-        """ """
+        """ CSV """
         a_file = cls.__name__ + ".csv"
-        if not a_file:
-            return []
-        else:
-            with open(a_file, encoding="utf-8") as f:
-                c_instances = []
-                ln = f.read()
-                list1 = cls.to_dictionary(ln).values()
-                for item in list1:
-                    c_instance.append(cls.create(*item))
-                return c_instances
+        if cls.__name__ == "Rectangle":
+            fieldnames = ["id", "width", "height", "x", "y"]
+        if cls.__name__ == "Square":
+            fieldnames = ["id", "size", "x", "y"]
+        with open(a_file, encoding="utf-8") as f:
+            reader = csv.DictReader(f, fieldnames=fieldnames)
+            instances = []
+            new_dict = {}
+            for item in reader:
+                for key in item:
+                    new_dict[key] = int(item[key])
+                instances.append(cls.create(**new_dict))
+            return instances
