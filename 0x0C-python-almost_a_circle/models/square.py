@@ -9,10 +9,7 @@ class Square(Rectangle):
 
     def __init__(self, size, x=0, y=0, id=None):
         """ instatiates a square """
-        self.__x = x
-        self.__y = y
-        self.__size = size
-        super().__init__(self.__size, self.__size, self.__x, self.__y)
+        super().__init__(size, size, x, y, id)
 
     def __str__(self):
         """ representas a square """
