@@ -19,7 +19,7 @@ class Square(Rectangle):
     @property
     def size(self):
         """ property size """
-        return self.__size
+        return self.width
 
     @size.setter
     def size(self, size):
@@ -29,7 +29,7 @@ class Square(Rectangle):
         if size <= 0:
             raise ValueError("width must be > 0")
         else:
-            self.__size = size
+            self.width = size
 
     def update(self, *args, **kwargs):
         """ assigns an argument to each attribute"""
@@ -37,7 +37,7 @@ class Square(Rectangle):
             if len(args) >= 1:
                 self.id = args[0]
             if len(args) >= 2:
-                self.__size = args[1]
+                self.width = args[1]
             if len(args) >= 3:
                 self.__x = args[2]
             if len(args) >= 4:
@@ -46,7 +46,7 @@ class Square(Rectangle):
             if 'id' in kwargs:
                 self.id = kwargs['id']
             if 'size' in kwargs:
-                self.__size = kwargs['size']
+                self.width = kwargs['size']
             if 'x' in kwargs:
                 self.__x = kwargs['x']
             if 'y' in kwargs:
@@ -54,5 +54,5 @@ class Square(Rectangle):
 
     def to_dictionary(self):
         """ returns dictionary representation of a square """
-        return {'id': self.id, 'size': self.__size, 'x': self.__size,
+        return {'id': self.id, 'size': self.width, 'x': self.__x,
                 'y': self.__y}
