@@ -90,7 +90,6 @@ class Base:
             writer = csv.DictWriter(f, delimiter=',', fieldnames=fieldnames)
             [writer.writerow(item.to_dictionary()) for item in list_objs]
 
-
     @classmethod
     def load_from_file_csv(cls):
         """ CSV """
