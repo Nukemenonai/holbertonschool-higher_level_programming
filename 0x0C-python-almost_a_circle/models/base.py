@@ -111,7 +111,7 @@ class Base:
 
     def draw(list_rectangles, list_squares):
         """ draws with turtle python module"""
-        for rectangle in list_rectangle:
+        for rectangle in list_rectangles:
             turtle.shape('turtle')
             turtle.screensize(600,600)
             turtle.penup()
