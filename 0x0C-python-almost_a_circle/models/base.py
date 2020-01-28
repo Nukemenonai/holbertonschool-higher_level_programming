@@ -130,7 +130,7 @@ class Base:
             turtle.setpos(rectangle.width + 20 + rectangle.x, 280)
             turte.pendown()
 
-        for square in square:
+        for square in list_squares:
             turtle.shape('turtle')
             turtle.screensize(600,600)
             turtle.penup()
