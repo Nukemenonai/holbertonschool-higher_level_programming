@@ -1,6 +1,7 @@
 """ test file bor base class """
 
 import unittest
+import pep8
 
 from models.base import Base
 from models.rectangle import Rectangle
@@ -46,6 +47,13 @@ class Test_id(unittest.TestCase):
         self.assertIsInstance(json_list_input, str)
         self.assertIsInstance(list_output, list)
 
+    def test_pep8_conformance(self):
+        """Test that we conform to PEP8."""
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/rectangle.py',
+                                        'models/square.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
 
 
 if __name__ == '__main__':
