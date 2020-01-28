@@ -4,6 +4,7 @@
 
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -107,3 +108,45 @@ class Base:
                     new_dict[key] = int(item[key])
                 instances.append(cls.create(**new_dict))
             return instances
+
+    def draw(list_rectangles, list_squares):
+        """ draws with turtle python module"""
+        for rectangle in list_rectangle:
+            turtle.shape('turtle')
+            turtle.screensize(600,600)
+            turtle.penup()
+            turtle.setpos(-280,280)
+            turtle.pendown()
+            turtle.color("red")
+            turtle.forward(rectangle.width)
+            turtle.right(90)
+            turtle.forward(rectangle.height)
+            turtle.right(90)
+            turtle.forward(rectangle.width)
+            turtle.right(90)
+            turtle.forward(rectangle.height)
+            turtle.setheading(0)
+            turtle.penup()
+            turtle.setpos(rectangle.width + 20 + rectangle.x, 280)
+            turte.pendown()
+
+        for square in square:
+            turtle.shape('turtle')
+            turtle.screensize(600,600)
+            turtle.penup()
+            turtle.setpos(-280,280)
+            turtle.pendown()
+            turtle.color("red")
+            turtle.forward(square.width)
+            turtle.right(90)
+            turtle.forward(square.width)
+            turtle.right(90)
+            turtle.forward(square.width)
+            turtle.right(90)
+            turtle.forward(square.width)
+            turtle.setheading(0)
+            turtle.penup()
+            turtle.setpos(square.width + 20 + rectangle.x, 280)
+            turte.pendown()
+
+        turtle.getscreen()._root.mainloop()
