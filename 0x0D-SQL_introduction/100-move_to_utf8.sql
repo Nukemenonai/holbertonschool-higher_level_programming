@@ -10,5 +10,5 @@ ALTER TABLE
 ALTER TABLE
       first_table
       CHANGE name
-      CHARACTHER SET utf8mb4
-      COLLATE utf8mb4_unicode_ci;
+      CHARACTHER SET = utf8mb4
+      COLLATE = utf8mb4_unicode_ci;
