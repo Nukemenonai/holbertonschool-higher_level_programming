@@ -1,2 +1,2 @@
 -- lists number of records with same score
-SELECT COUNT score AS number ORDER BY number DESC;
+SELECT score FROM second_table GROUP BY COUNT(score) > 1 AS number;
