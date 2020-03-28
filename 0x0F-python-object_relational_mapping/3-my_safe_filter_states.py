@@ -14,9 +14,12 @@ if __name__=='__main__':
 
     cursor = db.cursor()
     state = sys.argv[4]
-    cursor.execute("SELECT id, name FROM states WHERE name= %s"" ORDER BY id", (state,))
+    sql = "SELECT id, name FROM states WHERE name= %s"" ORDER BY id"
+    cursor.execute(sql, (state,))
     rows = cursor.fetchall()
 
-    for row in rows: 
+    for row in rows:
         print(row)
         
+    cursor.close()
+    db.close()
