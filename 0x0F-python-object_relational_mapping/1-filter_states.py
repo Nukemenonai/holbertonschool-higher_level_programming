@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-'''this script connect to a database '''
-import  MySQLdb
+'''finds all states starting by N'''
+import MySQLdb
 import sys
 
-if __name__=='__main__':
-    db= MySQLdb.connect(
+if __name__ == '__main__':
+    db = MySQLdb.connect(
         host='localhost',
         port=3306,
         user=sys.argv[1],
@@ -13,10 +13,9 @@ if __name__=='__main__':
     )
 
     cursor = db.cursor()
-    
-    cursor.execute("SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id")
+    sql = "SELECT id, name FROM states WHERE name LIKE 'N%' ORDER BY id"
+    cursor.execute(sql)
     rows = cursor.fetchall()
 
-    for row in rows: 
+    for row in rows:
         print(row)
-        
