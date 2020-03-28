@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''this script connect to a database '''
+'''first inner join '''
 import MySQLdb
 import sys
 
@@ -13,9 +13,13 @@ if __name__ == '__main__':
     )
 
     cursor = db.cursor()
-    state = sys.argv[4]
-    sql = "SELECT id, name FROM states WHERE name= %s"" ORDER BY id"
-    cursor.execute(sql, (state,))
+    sql = "SELECT \
+    cities.id, cities.name, states.name \
+    FROM cities \
+    JOIN states ON states.id = cities.state_id \
+    ORDER BY cities.id ASC"
+
+    cursor.execute(sql)
     rows = cursor.fetchall()
 
     for row in rows:
