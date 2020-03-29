@@ -5,6 +5,7 @@ import sys
 from model_state import Base, State
 from sqlalchemy.sql import select
 from sqlalchemy import (create_engine)
+from sqlalchemy.orm import sessionmaker
 
 if __name__ == '__main__':
     a = sys.argv[1]
@@ -14,9 +15,13 @@ if __name__ == '__main__':
                                                                        b,
                                                                        c),
                            pool_pre_ping=True)
-    conn = engine.connect()
-    sql = select([State])
-    res = conn.execute(sql)
-    row = res.first()
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
-    print("{}: {}".format(row[0], row[1]))
+    sq = session.query(State)
+    res = sq.first()
+
+    if res:
+        print("{}: {}".format(res.id, res.name))
+    else:
+        print("Nothing")
