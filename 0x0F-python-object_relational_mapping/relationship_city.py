@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 ''' first script using model for cities'''
 
-from model_state import Base
+from relationship_state import Base
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 
