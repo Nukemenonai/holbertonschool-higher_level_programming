@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     cursor = db.cursor()
     cursor.execute("SELECT states.id, name"
-                   " FROM states WHERE name LIKE 'N%'"
+                   " FROM states WHERE name COLLATE latin1_general_cs LIKE 'N%'"
                    " ORDER BY id ASC;")
     rows = cursor.fetchall()
 
