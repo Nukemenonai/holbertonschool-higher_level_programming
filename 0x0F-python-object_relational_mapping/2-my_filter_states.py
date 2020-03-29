@@ -14,8 +14,10 @@ if __name__ == '__main__':
 
     cursor = db.cursor()
     state = sys.argv[4]
-    sql = "SELECT id, name FROM states WHERE name= %s"" ORDER BY id"
-    cursor.execute(sql, (state,))
+    sql = "SELECT id, name FROM states \
+    WHERE name='{}' COLLATE latin1_general_cs \
+    ORDER BY states.id ASC".format(sys.argv[4])
+    cursor.execute(sql)
     rows = cursor.fetchall()
 
     for row in rows:
