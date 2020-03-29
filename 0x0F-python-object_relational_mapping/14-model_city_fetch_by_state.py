@@ -19,9 +19,11 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
     sq = session.query(State.name, City.id, City.name).\
-            join(City, State.id == City.state_id).\
-            order_by(City.id)
+        join(City, State.id == City.state_id).\
+        order_by(City.id)
     res = sq.all()
 
     for row in res:
         print("{:s}: ({:d}) {:s}".format(*row))
+
+    session.close()
