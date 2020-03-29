@@ -17,6 +17,6 @@ if __name__ == '__main__':
     conn = engine.connect()
     sql = select([State])
     res = conn.execute(sql)
-    row = res.fetchone()
+    row = res.first()
 
     print("{}: {}".format(row[0], row[1]))
