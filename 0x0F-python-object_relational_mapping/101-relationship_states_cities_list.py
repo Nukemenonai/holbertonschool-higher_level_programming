@@ -4,8 +4,8 @@ City Relationship
 """
 
 import sys
-from model_state import Base, State
-from model_city import City
+from relationship_state import Base, State
+from relationship_city import City
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 
@@ -20,3 +20,9 @@ if __name__ == '__main__':
 
     Session = sessionmaker(bind=engine)
     session = Session()
+    q = session.query(State).order_by(State.id)
+    a = q.all()
+    for state in a:
+        print(state.id, ": ", state.name)
+        for city in state.cities:
+            print("\t", city.id, ": ", city.name)
