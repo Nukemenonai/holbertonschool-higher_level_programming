@@ -20,9 +20,9 @@ if __name__ == '__main__':
 
     Session = sessionmaker(bind=engine)
     session = Session()
-    q = session.query(State).order_by(State.id)
+    q = session.query(State).outerjoin(City).order_by(State.id, City.id)
     a = q.all()
     for state in a:
         print(state.id, ": ", state.name)
         for city in state.cities:
-            print("\t", city.id, ": ", city.name)
+            print("    ", city.id, ": ", city.name)
