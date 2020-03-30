@@ -23,6 +23,6 @@ if __name__ == '__main__':
     q = session.query(State).outerjoin(City).order_by(State.id, City.id)
     a = q.all()
     for state in a:
-        print(state.id, ": ", state.name)
+        print("{}: {}".format(state.id, state.name))
         for city in state.cities:
-            print("    ", city.id, ": ", city.name)
+            print( "    {}: {}".format(city.id, city.name))
