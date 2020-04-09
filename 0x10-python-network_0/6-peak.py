@@ -3,6 +3,7 @@
 findpeak module
 """
 
+
 def find_peak(list_of_integers):
     """ function to find the peak element in a list """
     if list_of_integers is None or len(list_of_integers) == 0:
