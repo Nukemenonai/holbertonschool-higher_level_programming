@@ -1,3 +1,3 @@
 #!/bin/bash
 # this script returs status code only
-curl -sX POST -H "Content-Type: application/json" -d $(cat "$2") "$1"
+curl -X POST -k -i -H "Accept: application/json" -H "Content-Type: application/json" -w "%{body}" -w "%{http_code}" -d "$2" "$1"
