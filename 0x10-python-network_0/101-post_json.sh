@@ -1,3 +1,3 @@
 #!/bin/bash
-# this script returs status code only
-curl -X POST -H "Content-Type: application/json"  -d @"$2" "$1"
+# this script uploads JSON
+curl -sX POST -H "Content-Type: application/json" -d @"$2" "$1"
