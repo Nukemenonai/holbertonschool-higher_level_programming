@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""this script fetches"""
+"""this script fetches something """
 
 import requests
 import sys
