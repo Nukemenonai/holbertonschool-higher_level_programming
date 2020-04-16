@@ -6,6 +6,9 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    r = requests.get("{}".format(sys.argv[1]))
-    resp = r.raise_for_status()
-    print("Error code: {}".format(resp))
+    try:
+        r = requests.get("{}".format(sys.argv[1]))
+        r.raise_for_status()
+        print(r.text)
+    except HTTPError:
+        print("Error code: {}".format(r.status_code))
