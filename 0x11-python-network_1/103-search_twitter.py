@@ -10,7 +10,6 @@ import base64
 if __name__ == "__main__":
     client_key = sys.argv[1]
     client_secret = sys.argv[2]
-    search = sys.argv[3]
 
     key_secret = '{}:{}'.format(client_key, client_secret).encode('ascii')
 
@@ -35,7 +34,7 @@ if __name__ == "__main__":
     }
 
     search_params = {
-        'q': '#holberton',
+        'q': "{}".format(sys.argv[3]),
         'result_type': 'recent',
         'count': 5
     }
