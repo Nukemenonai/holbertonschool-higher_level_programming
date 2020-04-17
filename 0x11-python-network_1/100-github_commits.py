@@ -13,4 +13,5 @@ if __name__ == "__main__":
                              sys.argv[2]))
     data = r.json()
     for i in range(10):
-        print("{}: {}".format(data[i]['sha'], data[i]['committer']['login']))
+        print("{}: {}".format(data[i]['sha'],
+                              data[i]['commit']['author']['name']))
