@@ -31,13 +31,13 @@ if __name__ == "__main__":
     access_token = auth_resp.json()['access_token']
 
     search_headers = {
-    'Authorization': 'Bearer {}'.format(access_token)
+        'Authorization': 'Bearer {}'.format(access_token)
     }
 
     search_params = {
-    'q': '#holberton',
-    'result_type': 'recent',
-    'count': 5
+        'q': '#holberton',
+        'result_type': 'recent',
+        'count': 5
     }
 
     search_url = '{}1.1/search/tweets.json'.format(base_url)
@@ -45,6 +45,5 @@ if __name__ == "__main__":
                                headers=search_headers, params=search_params)
 
     Data = search_resp.json().get("statuses")
-    "print(type(Data))"
     for r in Data:
         print("[{}] {} by {}".format(r['id'], r['text'], r['user']['name']))
