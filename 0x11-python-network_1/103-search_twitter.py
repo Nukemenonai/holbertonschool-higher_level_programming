@@ -35,7 +35,6 @@ if __name__ == "__main__":
 
     search_params = {
         'q': "{}".format(sys.argv[3]),
-        'result_type': 'recent',
         'count': 5
     }
 
