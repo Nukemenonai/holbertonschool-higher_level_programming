@@ -2,22 +2,21 @@
 
 const request = require('request');
 const endpoint = process.argv[2];
-const wedge = 'https://swapi-api.hbtn.io/api/people/18/';
+const id = '18';
 
-request(endpoint, function (error, response, body) {
-  if (error === null) {
-    let ct = 0;
+request(endpoint, function (err, response, body) {
+  if (err) {
+    console.error('error:', err);
+  } else {
     const resp = JSON.parse(body);
-    for (let i = 0; i < resp.results.length; i++) {
-      for (let j = 0; j < resp.results[i].characters.length; j++) {
-        if (wedge === resp.results[i].characters[j]) {
-          ct++;
+    let count = 0;
+    for (const i of resp.results) {
+      for (const j of i.characters) {
+        if (j.search(id) > 0) {
+          count++;
         }
       }
     }
-    console.log(ct);
-  }
-  if (error) {
-    console.log(error);
+    console.log(count);
   }
 });
